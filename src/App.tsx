@@ -18,9 +18,9 @@ function App() {
   const handleSubmit = () => {
     // Handle sending data to the app
     const dataToSend = JSON.stringify(inputData);
-    window.location.href = `AwesomeProject://open-app?data=${encodeURIComponent(
-      dataToSend
-    )}`;
+    if (window) {
+      window?.ReactNativeWebView?.postMessage(dataToSend);
+    }
     // You may modify the URL structure based on how your app expects data
   };
 
